@@ -28,86 +28,24 @@ class User < ApplicationRecord
         source: :chirp
 
 
-    #Find all chirps for a particular user
+    #Get first user record, use first
 
-    #Find all chirps liked by people politically affiliated with JavaScript
+    #Get last user record, use last
+  
+    #Find a user that exists by id, use find
 
-    #Get only the unique values from the previous query
+    #Find a user that doesn't exist by id, use find
 
-    #Find all chirps with no likes
-
-    #Find how many likes each chirp has
-
-    #Find chirps with at least 3 likes
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    #Find a user by username, use find_by
     
-    # Includes #
+    #Find a user by username that does not exist, use find_by
 
-    # def self.see_chirp_authors_n_plus_one
-    #     # the "+1"
-    #     chirps = Chirp.all
+    #Find all users between the ages of 10 and 20 inclusive. Show their username, and political affiliation.
 
-    #     # the "N"
-    #     chirps.each do |chirp|
-    #         puts chirp.author.username
-    #     end
+    #Find all users not younger than the age of 11. Use `where.not`
 
-    # end
+    #Find all political_affiliations of our users
 
-    # def self.see_chirps_optimized
-    #     # pre-fetches data
-    #     chirps = Chirp.includes(:author).all
-
-    #     chirps.each do |chirp| 
-    #     # uses pre-fetched data 
-    #         puts chirp.author.username
-    #     end
-    # end
-
-    # # Joins #
-
-    # def self.see_chirp_num_likes_n_plus_one
-    #     chirps = Chirp.all
-
-    #     chirps.each do |chirp|
-    #         puts chirp.likes.length
-    #     end
-    # end
-
-    # def self.see_chirp_num_likes_optimized
-    #     chirps_with_likes = Chirp
-    #         .select("chirps.*, COUNT(*) AS num_likes")
-    #         .joins(:likes)
-    #         .group(:id)
-    
-    #     chirps_with_likes.each do |chirp|
-    #         puts chirp.num_likes
-    #     end
-    # end
+    #Find all users who has a political affiliation in this list and order by ascending
+    #political_affiliations = ["Ruby", "C"]
 end

@@ -33,25 +33,88 @@ class Chirp < ApplicationRecord
         through: :likes,
         source: :liker
 
-    #Get first user record, use first
 
-    #Get last user record, use last
-
-    #Find a user that exists by id, use find
-
-    #Find a user that doesn't exist by id, use find
-
-    #Find a user by username, use find_by
+    #Find all chirps for a particular user
     
-    #Find a user by username that does not exist, use find_by
+    #Find all chirps liked by people politically affiliated with JavaScript
 
-    #Find all users between the ages of 10 and 20 inclusive. Show their username, and political affiliation.
+    #Get only the unique values from the previous query
 
-    #Find all users not younger than the age of 11. Use `where.not`
+    #Find all chirps with no likes
 
-    #Find all political_affiliations of our users
+    #Find how many likes each chirp has
 
-    #Find all users who has a political affiliation in this list and order by ascending
-    #political_affiliations = ["Ruby", "C"]
+    #Find chirps with at least 3 likes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # Includes #
+
+    # def self.see_chirp_authors_n_plus_one
+    #     # the "+1"
+    #     chirps = Chirp.all
+
+    #     # the "N"
+    #     chirps.each do |chirp|
+    #         puts chirp.author.username
+    #     end
+
+    # end
+
+    # def self.see_chirps_optimized
+    #     # pre-fetches data
+    #     chirps = Chirp.includes(:author).all
+
+    #     chirps.each do |chirp| 
+    #     # uses pre-fetched data 
+    #         puts chirp.author.username
+    #     end
+    # end
+
+    # # Joins #
+
+    # def self.see_chirp_num_likes_n_plus_one
+    #     chirps = Chirp.all
+
+    #     chirps.each do |chirp|
+    #         puts chirp.likes.length
+    #     end
+    # end
+
+    # def self.see_chirp_num_likes_optimized
+    #     chirps_with_likes = Chirp
+    #         .select("chirps.*, COUNT(*) AS num_likes")
+    #         .joins(:likes)
+    #         .group(:id)
     
+    #     chirps_with_likes.each do |chirp|
+    #         puts chirp.num_likes
+    #     end
+    # end
+
 end
