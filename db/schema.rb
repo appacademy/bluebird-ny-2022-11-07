@@ -22,6 +22,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_08_165658) do
     t.index ["author_id"], name: "index_chirps_on_author_id"
   end
 
+  create_table "follows", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "followee_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["followee_id"], name: "index_follows_on_followee_id"
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "liker_id", null: false
     t.integer "chirp_id", null: false
