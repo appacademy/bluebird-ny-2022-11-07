@@ -29,23 +29,26 @@ class User < ApplicationRecord
 
 
     #Get first user record, use first
-
+    # User.first
     #Get last user record, use last
-  
+    # User.last
     #Find a user that exists by id, use find
-
+    # User.find(8) # => User instance with username "wakka_wakka"
     #Find a user that doesn't exist by id, use find
-
+    # User.find(200)
     #Find a user by username, use find_by
-    
+    # User.find_by(username: "wakka_wakka") # => user instance with username "wakka_wakka"
     #Find a user by username that does not exist, use find_by
+    # User.find_by(username: "fishes") # => nil
+
 
     #Find all users between the ages of 10 and 20 inclusive. Show their username, and political affiliation.
-
+    # User.where(age: 10..20).select(:username, :political_affiliation)
     #Find all users not younger than the age of 11. Use `where.not`
-
+    # User.where.not("age <= ll") User.where.not("age <= ?", 11) User.where.not(age: 0..11)
     #Find all political_affiliations of our users
-
+    # User.select(:political_affiliation).group(:political_affiliation)
     #Find all users who has a political affiliation in this list and order by ascending
-    #political_affiliations = ["Ruby", "C"]
+    # political_affiliations = ["Ruby", "C"]
+    # User.where(political_affiliation: political_affiliations).order(username: :asc)
 end
