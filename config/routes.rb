@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # post '/chirps', to: "chirps#create"
   # patch '/chirps/:id', to: "chirps#update"
   # put '/chirps/:id', to: "chirps#update"
-  # delete '/chirp/:id', to: "chirps#destroy"
+  # delete '/chirps/:id', to: "chirps#destroy"
 
   # resources <controller>, <action_options>
 
