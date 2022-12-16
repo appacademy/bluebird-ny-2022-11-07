@@ -17,6 +17,6 @@ Rails.application.routes.draw do
 
   # resources :chirps, except: [:new, :edit]
 
-
+  resources :users
 
 end
