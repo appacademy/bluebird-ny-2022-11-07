@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+  before_action :require_logged_out, only: [:new, :create]
+  before_action :require_logged_in, only: [:index, :show, :edit, :update]
+
   def index
     @users = User.all
     # render json: @users
@@ -25,6 +29,7 @@ class UsersController < ApplicationController
 
     if @user.save
       # debugger
+      login(@user)
       redirect_to user_url(@user)
     else
       render json: @user.errors.full_messages, status: 422
@@ -32,7 +37,8 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :age)
+    debugger
+    params.require(:user).permit(:username, :email, :password, :age, :political_affiliation)
   end
 
   def edit

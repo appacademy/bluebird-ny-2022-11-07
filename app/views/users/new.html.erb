@@ -1,4 +1,8 @@
-<form action="<%= users_url %>" method="POST">
+<h1>Sign Up</h1>
+<%= render 'form', user: @user, type: :new %>
+
+
+<!-- <form action="<%= users_url %>" method="POST">
 
   <label for="username">Username:
     <input type="text" id="username" name="user[username]" value="<%= @user.username %>">
@@ -16,4 +20,4 @@
 
 
   <input type="submit" value="Create User">
-</form>
+</form> -->
