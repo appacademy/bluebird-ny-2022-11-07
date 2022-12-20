@@ -17,9 +17,11 @@ class SessionsController < ApplicationController
             login(@user)
             redirect_to user_url(@user)
         else
-            # @user = User.new(username: params[:user][:username])
-            # render :new
-            redirect_to new_session_url
+            @user = User.new(
+                username: params[:user][:username],
+                password: params[:user][:password]
+            )
+            render :new
         end
     end
 

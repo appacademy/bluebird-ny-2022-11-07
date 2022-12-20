@@ -3,13 +3,18 @@ class ChirpsController < ApplicationController
   def index
     @chirps = Chirp.all 
     # debugger
-    render json: @chirps
+    # render json: @chirps
+    render :index
   end
 
   def show
     @chirp = Chirp.find(params[:id])
     # debugger
-    render json: @chirp
+    render :show
+  end
+
+  def new
+    render :new
   end
 
   def create 
@@ -18,7 +23,7 @@ class ChirpsController < ApplicationController
     # chirp[body] = ""
     # chirp[title] = ""
 
-    @chirp.author = User.first 
+    @chirp.author_id = current_user.id
 
     # debugger
     if @chirp.save

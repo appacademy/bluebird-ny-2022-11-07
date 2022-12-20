@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   # resources <controller>, <action_options>
 
-  resources :chirps, only: [:index, :show, :create, :update, :destroy]
+  resources :chirps, only: [:new, :index, :show, :create, :update, :destroy]
 
   # resources :chirps, except: [:new, :edit]
 

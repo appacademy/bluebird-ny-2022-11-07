@@ -1,0 +1,10 @@
+<h2>The Chirps Index</h2>
+<ul>
+    <% @chirps.each do |chirp| %>
+        <li>
+            <p><%= chirp.body %></p>
+            <a href="<%= chirp_url(chirp) %>">View this chirp</a>
+        </li>
+    <% end %>
+
+</ul>

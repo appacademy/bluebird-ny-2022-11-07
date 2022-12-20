@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    debugger
+    # debugger
     params.require(:user).permit(:username, :email, :password, :age, :political_affiliation)
   end
 
