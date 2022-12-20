@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
                 username: params[:user][:username],
                 password: params[:user][:password]
             )
+            flash.now[:errors] = ["Invalid Credentials. Please try again..."]
             render :new
         end
     end
@@ -29,6 +30,9 @@ class SessionsController < ApplicationController
         if logged_in?
             logout!
         end
+
+        flash[:messages] = ["Successfully logged out!"]
+
         redirect_to new_session_url
     end
 
