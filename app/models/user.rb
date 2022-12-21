@@ -17,7 +17,7 @@ class User < ApplicationRecord
     validates :password_digest, presence: true
     validates :password, length: { minimum: 6 }, allow_nil: true
 
-    before_validation :ensure_session_token
+    after_initialize :ensure_session_token
 
     attr_reader :password
 
@@ -34,11 +34,6 @@ class User < ApplicationRecord
         password_object = BCrypt::Password.new(self.password_digest)
         password_object.is_password?(other_pass)
     end
-
-    # def password
-    #     puts "Im in the getter"
-    #     @password
-    # end
 
     def password=(new_pass)
         # puts "Im in the setter"
